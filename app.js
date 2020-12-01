@@ -39,13 +39,13 @@ app.use(function authenticateToken(req, res, next) {
 });
 
 app.use(function (req, res, next) {
-  console.log("lookingUpUser:", req.user);
+  // console.log("lookingUpUser:", req.user);
   // if a valid JWT token is present
   if (req.user) {
     // Look up the user's record
-    console.log("Req.User:", req.user);
+    // console.log("Req.User:", req.user);
     models.User.findByPk(req.user.id).then(currentUser => {
-      console.log("currentUser:", currentUser);
+      // console.log("currentUser:", currentUser);
       // make the user object available in all controllers and templates
       res.locals.currentUser = currentUser;
       next();
